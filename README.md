@@ -6,11 +6,9 @@ The role of this project is to provide a quick development setup for Magento 2 w
 
 We used Mage Inferno approach in https://github.com/mageinferno/docker-magento2-php and defined our solution. Some files in this project are keep the same as the ones that are used by Mage Inferno.
 
-The main reason why we didn't used the Mage Inferno docker images for magento 2 is because we want some level of control when we build the images and make a quick Magento 2 installation that will need minimal configuration. 
+The main reason why we didn't used the Mage Inferno docker images it's because we want some level of control when we build the images and make a quick Magento 2 installation that will need minimal configuration. 
 
 The minimal configuration required is the username and password keys for repo.magento.com.
-
-Of cource every configuration file from this project can be modified for a better pourpose. 
 
 **PLEASE DO NOT USE THIS ON PRODUCTION!!!**
 
