@@ -1,49 +1,58 @@
-# Mage Inferno Docker Compose (https://github.com/mageinferno/magento2-docker-compose)
-# Version 7.0.0
+# Evozon Magento 2 Setup with Docker Compose
+# Copyright (c) 2017 Evozon-PHP
 
-version: "2"
+version: "3"
 
 services:
   app:
-    image: mageinferno/magento2-nginx:1.11-1
+    build:
+      context: .docker/nginx/
+    image: evozon/magento2-nginx
+    container_name: evozon_magento2_nginx
+    depends_on: 
+      - db
+      - phpfpm
     links:
       - db
       - phpfpm
     volumes: &appvolumes
-      - appdata:/var/www/html
+      - ./html:/var/www/html
+      - ./.composer:/var/www/.composer
     ports:
-      - 8000:80
+      - 80:80
     networks: &appnetworks
       - www
 
   phpfpm:
-    image: mageinferno/magento2-php:7.0-fpm-1
+    build:
+      context: .docker/php/
+    image: evozon/magento2-php
+    container_name: evozon_magento2_php
+    depends_on: 
+      - db
     links:
       - db
     volumes: *appvolumes
     networks: *appnetworks
+    env_file: .env/setup.env
 
   db:
     image: percona:5.7
     volumes:
-      - dbdata:/var/lib/mysql
+      - ./dbdata/mysql:/var/lib/mysql
     ports:
-      - 8001:3306
+      - 3306:3306
     networks: *appnetworks
-    env_file: env/mysql.env
-
+    env_file: .env/mysql.env
+ 
   setup:
-    image: mageinferno/magento2-php:7.0-fpm-1
+    image: evozon/magento2-php
     command: /usr/local/bin/mage-setup
     links:
       - db
     volumes: *appvolumes
     networks: *appnetworks
-    env_file: env/setup.env
-
-volumes:
-  dbdata:
-  appdata:
+    env_file: .env/setup.env
 
 networks:
   www:
