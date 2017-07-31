@@ -88,9 +88,9 @@ Example for linux Mint:
  1. Open the __.bashrc__ file
  2. Add the next text at the end of the file:
 
-`alias magento-cli='docker-compose exec phpfpm magento'
+`alias magento-cli='docker-compose exec phpfpm magento'`
 
-alias composer='docker-compose exec -u www-data phpfpm composer'`
+`alias composer='docker-compose exec -u www-data phpfpm composer'`
 
  3. Restart or open agian the terminal window.
  4. Change directory to project location.
