@@ -4,18 +4,18 @@
 
 The role of this project is to provide a quick development setup for Magento 2 with or without sample data using Docker Compose.
 
-We used Mage Inferno approach in https://github.com/mageinferno/docker-magento2-php and defined our solution. Some files in this project are keep the same as the ones that are used by Mage Inferno.
+We used Mage Inferno approach from https://github.com/mageinferno/docker-magento2-php and defined our solution. Some files in this project are kept the same as the ones that are used by Mage Inferno.
 
-The main reason why we didn't used the Mage Inferno docker images it's because we want some level of control when we build the images and make a quick Magento 2 installation that will need minimal configuration. 
+The main reason we didn't used the Mage Inferno docker images, it's because we want some level of control when we build the images and have a quick Magento 2 installation that will need minimal configuration.
 
-The minimal configuration required is the username and password keys for repo.magento.com.
+The minimal configuration required is the username and password keys from repo.magento.com.
 
 **PLEASE DO NOT USE THIS ON PRODUCTION!!!**
 
-## Development enviroment
+## Development environment
 
-The application will use the next configuration: 
-* Nging 1.11
+The application will use the next configuration:
+* Nginx 1.11
 * Php FPM 7.0.*
 * Percona with Mysql 5.7
 * last version of Composer
@@ -29,11 +29,11 @@ The default Magento configuration use by this project has:
 * Admin username set to __admin__
 * Admin password set to __Admin123admin__
 
-The Magento 2 files will be installed on directory __html__. 
+The Magento 2 files will be installed on directory __html__.
 
 ## Requirements
 
-This project requiers the Docker and Docker Compose installed on the machine. Please follow the Docker installation steps from https://docs.docker.com/engine/installation/ and docker compose installation steps from https://docs.docker.com/compose/install/.
+This project requires the Docker and Docker Compose installed on the machine. Please follow the Docker installation steps from https://docs.docker.com/engine/installation/ and docker compose installation steps from https://docs.docker.com/compose/install/.
 
 ## Installation
 
@@ -44,9 +44,9 @@ Please follow the next steps:
             "username": "YOUR_USERNAME_USED_ON_REPO_MAGENTO",
             "password": "YOUR_PASSWORD_USED_ON_REPO_MAGENTO"
 
-3. Open the command line that allows you to run Docker Compose CLI application.
-4. Change directory in command line to the directory where the step 1 was performed.
-5. Build the docker images with next command: 
+3. Open a terminal that allows you to run Docker Compose CLI application.
+4. Change directory in terminal to the directory where the step 1 was performed.
+5. Build the docker images with next command:
 
 `docker-compose up -d --build app`*
 
@@ -65,7 +65,7 @@ Please follow the next steps:
 
 In order to run composer commands you need to be in the directory of the project(where this docker compose file is used) and type this:
 
-`docker-compose exec -u www-data phpfpm composer [composer CLI options]` 
+`docker-compose exec -u www-data phpfpm composer [composer CLI options]`
 
 Example of composer update command:
 
@@ -73,15 +73,15 @@ Example of composer update command:
 
 ## How to use Magento 2 CLI
 
-The next commend can be usen the directory of the project(where this docker compose file is used):
+The next command can be used in the directory of the project (where this docker compose file is used):
 
 `docker-compose exec phpfpm magento [magento CLI options]`
 
 
-## Suggestions 
+## Suggestions
 Try using CLI aliases for the composer and magento.
 
-Example for linux Mint: 
+Example for linux Mint:
 
  1. Open the __.bashrc__ file
  2. Add the next text at the end of the file:
@@ -90,7 +90,7 @@ Example for linux Mint:
 
 `alias composer='docker-compose exec -u www-data phpfpm composer'`
 
- 3. Restart or open agian the terminal window.
+ 3. Restart or open again the terminal window.
  4. Change directory to project location.
  5. Run `composer` or `magento-cli` commands.
  
