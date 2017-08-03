@@ -52,7 +52,7 @@ Please follow the next steps:
 
 6. Download and install Magento CE 2 with next command
 
-`docker-composer run setup`
+`docker-compose run setup`
 
 7. Add the next text in hosts file of your OS system:
 

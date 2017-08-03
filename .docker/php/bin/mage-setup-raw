@@ -3,6 +3,8 @@ echo "Initializing setup..."
 
 cd /var/www/html
 
+rm rf .keep
+
 if [ -f ./app/etc/config.php ] || [ -f ./app/etc/env.php ]; then
   echo "It appears Magento is already installed (app/etc/config.php or app/etc/env.php exist). Exiting setup..."
   exit

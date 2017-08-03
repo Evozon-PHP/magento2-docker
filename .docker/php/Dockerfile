@@ -8,6 +8,7 @@ RUN apt-get update \
     libjpeg62-turbo-dev \
     libmcrypt-dev \
     libpng12-dev \
+    mysql-client \
     libxslt1-dev
 
 RUN docker-php-ext-configure \
