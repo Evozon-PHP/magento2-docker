@@ -17,7 +17,7 @@ The minimal configuration required is the username and password keys from repo.m
 The application will use the next configuration:
 * Nginx 1.11
 * Php FPM 7.0.*
-* Percona with Mysql 5.7
+* Percona with Mysql 5.7 (On Windows OS if you use Docker for Windows (NOT Docker Toolbox) you need to change the percona version to percona:5.6.35 in docker-compose.yml file - kown issues - https://github.com/docker-library/percona/issues/42)
 * last version of Composer
 * Magento CE 2.1.7 (the last stable version in July 2017)
 
