@@ -48,7 +48,7 @@ Please follow the next steps:
 4. Change directory in terminal to the directory where the step 1 was performed.
 5. Build the docker images with next command:
 
-`docker-compose up -d --build app`*
+`docker-compose up -d --build app`
 
 6. Download and install Magento CE 2 with next command
 
