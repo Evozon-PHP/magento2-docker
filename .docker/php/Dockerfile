@@ -30,8 +30,9 @@ RUN apt-get install -y git
 RUN curl -sS https://getcomposer.org/installer | \
   php -- --install-dir=/usr/local/bin --filename=composer --prefer-dist
   
-RUN yes | pecl install xdebug \
-    && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini 
+# Install Xdebug
+RUN pecl install xdebug && \
+docker-php-ext-enable xdebug
 
 
 ENV PHP_MEMORY_LIMIT 2G
@@ -45,6 +46,7 @@ ENV APP_MAGE_MODE default
 
 COPY conf/www.conf /usr/local/etc/php-fpm.d/
 COPY conf/php.ini /usr/local/etc/php/
+COPY ./conf/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 COPY conf/php-fpm.conf /usr/local/etc/
 COPY bin/* /usr/local/bin/
 
